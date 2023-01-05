@@ -7,9 +7,13 @@ Features
 • Add and categorize your transactions
 
 • See your spending by category and month
+
 • Set budget limits for each category
+
 • See your current balance and remaining budget for the month
+
 • View past transactions and budgets
+
 • Responsive design for use on desktop and mobile devices
 
 Installation
@@ -22,7 +26,9 @@ Installation
 Dependencies
 
 • React
+
 • React-Router
+
 • Axios
 
 Contributing
