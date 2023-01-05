@@ -5,6 +5,7 @@
 Features
 
 • Add and categorize your transactions
+
 • See your spending by category and month
 • Set budget limits for each category
 • See your current balance and remaining budget for the month
