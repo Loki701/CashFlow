@@ -1,0 +1,15 @@
+{
+  "short_name": "CashFlow",
+  "name": "Create CashFlow App Sample",
+  "icons": [
+    {
+      "src": "./img/cashFlowLogo.png",
+      "type": "image/png",
+      "sizes": "650x384"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
