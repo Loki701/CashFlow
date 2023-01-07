@@ -1,9 +1,11 @@
 import { useRef, useState, useEffect} from 'react';
 import logo from '../img/CashFlowLogo.png';
 import {Link} from 'react-router-dom';
-import {Navigate} from 'react-router-dom';
+import {Navigate, useNavigate} from 'react-router-dom';
+import './Form.css';
 
 import axios from '../api/Axios';
+import { faNairaSign } from '@fortawesome/free-solid-svg-icons';
 const LOGIN_URL = '/api/auth/login';
 
 const Login = () => {
@@ -55,14 +57,17 @@ const Login = () => {
             errRef.current.focus();
         }
     }
+    const navigate = useNavigate();
+    const handleLogoClick = () => {
+        navigate('/');
+    }
     
 
 
     return (
-        <div className='homepage-container'>
-            <div className='title-context'>
-                <img className='logo' alt='logo' src={logo} />
-                <h1 className='title'>Gator Manager</h1>
+        <div className='login-page-container'>
+            <div className='header-container'>
+                <img className='form-logo' alt='logo' onClick={handleLogoClick} src={logo} />
             </div>
             {success ? (
                 <Navigate to="/home"/>
@@ -71,7 +76,7 @@ const Login = () => {
                 <section>
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <div className='signin-content'>
-                    <h1 className='signin-header'>Sign In</h1>
+                    <h1 className='signin-header'>Login</h1>
                     </div>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="username">Username:</label>
@@ -106,6 +111,9 @@ const Login = () => {
                 </section>
                 
             )}
+            <div className="form-footer-container">
+            <small> Copyright &copy; 2023, CashFlow. All rights reserved.</small>
+            </div>
         </div>
     )
 }

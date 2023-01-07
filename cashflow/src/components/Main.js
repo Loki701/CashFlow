@@ -1,7 +1,16 @@
 import './Main.css';
 import logo from '../img/CashFlowLogo.png'
+import {useNavigate} from 'react-router-dom';
 
 export default function Main() {
+    const navigate = useNavigate();
+    const handleLogin = () => {
+        navigate('/login')
+    }
+    const handleSignup = () => {
+        navigate('/signup')
+    }
+    
 
     return(
         <div className="main">
@@ -12,8 +21,8 @@ export default function Main() {
 
                 </div>
                 <div className="main-header-action-container">
-                    <button className='signin'>Sign in</button>
-                    <button className='signup'>Sign up</button>
+                    <button className='signin' onClick={handleLogin}>Login</button>
+                    <button className='signup'onClick={handleSignup}>Sign up</button>
                 </div>
             </div>
             <div className="main-body-container">

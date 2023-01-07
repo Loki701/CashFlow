@@ -11,6 +11,9 @@
 .logo{
     height: 17vmin;
 }
+.logo:hover{
+    cursor: pointer;
+}
 .main-header-container{
     background-color: rgba(255, 255, 255, .15);
     backdrop-filter: blur(5px);
@@ -28,7 +31,7 @@
     height: 100%;
 }
 .main-header-action-container{
-    width: 250px;
+    width: 300px;
 }
 .signin{
     

@@ -26,6 +26,7 @@ const ProtectedRoute = ({redirectPath = '/login', children}) =>{
 export default function App() {
 
   return (
+    <>
     <Routes>
       <Route index element={<Main/>} />
       <Route exact path="/" element={<Main/>} />
@@ -36,6 +37,7 @@ export default function App() {
         <Route exact path="/home" element={<Home/>} />
       </Route>
     </Routes>
+    </>
   );
 }
 

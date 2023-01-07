@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Georgia, serif;
+  font-weight: bold;
 }
 :root{
   --black: #14110F;
