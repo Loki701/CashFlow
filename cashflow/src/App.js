@@ -1,7 +1,7 @@
-import logo from './img/CashFlowLogo.png';
-//import './App.css';
+import './App.css';
 import Home from './components/Home';
 import Login from './components/Login';
+import Signup from './components/Signup';
 import Main from './components/Main';
 import { Routes, Route, Link, Navigate, Outlet } from 'react-router-dom';
 import React, {createContext, useContext, useState} from 'react';
@@ -28,11 +28,13 @@ export default function App() {
   return (
     <Routes>
       <Route index element={<Main/>} />
-      <Route path="/" element={<Main/>} />
+      <Route exact path="/" element={<Main/>} />
+      <Route exact path="/login" element={<Login/>} />
+      <Route exact path="/signup" element={<Signup/>} />
+
       <Route element={<AuthProvider><ProtectedRoute /></AuthProvider>}>
         <Route exact path="/home" element={<Home/>} />
       </Route>
-      <Route exact path="/login" element={<Login/>} />
     </Routes>
   );
 }
