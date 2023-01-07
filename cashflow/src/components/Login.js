@@ -1,11 +1,12 @@
-import { useRef, useState, useEffect} from 'react';
+import { useRef, useState, useEffect, useContext} from 'react';
 import logo from '../img/CashFlowLogo.png';
 import {Link} from 'react-router-dom';
 import {Navigate, useNavigate} from 'react-router-dom';
 import './Form.css';
+import { AuthContext } from '../App';
 
 import axios from '../api/Axios';
-import { faNairaSign } from '@fortawesome/free-solid-svg-icons';
+//import { faNairaSign } from '@fortawesome/free-solid-svg-icons';
 const LOGIN_URL = '/api/auth/login';
 
 const Login = () => {
@@ -15,7 +16,8 @@ const Login = () => {
     const [username, setUser] = useState('');
     const [password, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
-    const [success, setSuccess] = useState(false);
+    //const [success, setSuccess] = useState(false);
+    const auth = useContext(AuthContext);
 
     useEffect(() => {
         userRef.current.focus();
@@ -28,7 +30,6 @@ const Login = () => {
     
     async function handleSubmit(e) {
         e.preventDefault();
-        
         try {
             const response = await axios.post(LOGIN_URL,
                 JSON.stringify({ username, password }),
@@ -37,12 +38,12 @@ const Login = () => {
                     withCredentials: true
                 }
             );
-            //console.log(JSON.stringify(response?.data));
+            console.log(JSON.stringify(response?.data));
             //console.log(JSON.stringify(response));
             if(response.data.success){
                 setUser('');
                 setPwd('');
-                setSuccess(true);
+                auth.setIsAuthenticated(true);   
             }
         } catch (err) {
             if (!err?.response) {
@@ -69,7 +70,7 @@ const Login = () => {
             <div className='header-container'>
                 <img className='form-logo' alt='logo' onClick={handleLogoClick} src={logo} />
             </div>
-            {success ? (
+            {auth.isAuthenticated? (
                 <Navigate to="/home"/>
             ) : (
                 
